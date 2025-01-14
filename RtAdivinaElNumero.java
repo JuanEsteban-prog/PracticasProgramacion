@@ -13,14 +13,11 @@ class RtAdivinaElNumero {
         String userInput = scanner.nextLine();
         int userElection = Integer.parseInt(userInput);
 
-        if (userElection == numberToGuess) {
-             System.out.print("Felecidades adivinaste el numero!!!!");
-        }
-        if(userElection>numberToGuess){
-            System.out.println("Tu eleccion fue mayor que el numero que estaba pensando");
-        }else{
-            System.out.println("Tu eleccion fue menor a la que estaba pensando");
-        }
+        System.out.println(userElection == numberToGuess 
+            ? "Felecidades adivinaste el numero!!!!" 
+            : userElection > numberToGuess 
+                ? "Tu eleccion fue mayor que el numero que estaba pensando" 
+                : "Tu eleccion fue menor a la que estaba pensando");
         
         System.out.println("La eleccion aleatoria de la computadora fue: " + numberToGuess); 
         System.out.println("La eleccion del usuario fue: " + userElection);
