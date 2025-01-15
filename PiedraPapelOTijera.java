@@ -13,13 +13,13 @@ public class PiedraPapelOTijera {
         showResults(userChoice, computerChoice);
     }
 
-    public static void showMenu() {
+    static void showMenu() {
         System.out.println("Juguemos Piedra, Papel o Tijeras !!!");
         System.out.println("Selecciona una opción: ");
         System.out.println("0 = Piedra, 1 = Papel, 2 = Tijera");
     }
 
-    public static int getUserChoice() {
+    static int getUserChoice() {
         Scanner scanner = new Scanner(System.in);
         int choice;
         do {
@@ -29,18 +29,18 @@ public class PiedraPapelOTijera {
         return choice;
     }
 
-    public static int getComputerChoice() {
+    static int getComputerChoice() {
         Random random = new Random();
         return random.nextInt(3);
     }
 
-    public static void showOptions(int userChoice, int computerChoice) {
+    static void showOptions(int userChoice, int computerChoice) {
         String[] options = {"Piedra", "Papel", "Tijera"};
         System.out.println("El usuario eligió: " + options[userChoice]);
         System.out.println("La computadora eligió: " + options[computerChoice]);
     }
 
-    public static void showResults(int userChoice, int computerChoice) {
+    static void showResults(int userChoice, int computerChoice) {
         String[][] results = {
             {"Empate", "Perdiste", "Ganaste"},
             {"Ganaste", "Empate", "Perdiste"},
