@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "randomtest",
+            "request": "launch",
+            "mainClass": "randomtest",
+            "projectName": "PracticasProgramacion_1bf0f3f5"
+        },
+        {
+            "type": "java",
             "name": "Halloween",
             "request": "launch",
             "mainClass": "Halloween",
