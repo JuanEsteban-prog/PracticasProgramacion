@@ -4,6 +4,12 @@ public class ParcialParteI {
         int caramelosNinoUno = 0;
         int caramelosNinoDos = 0;
         int caramelosNinoTres = 0;
+        final int MAXIMO_DE_CASAS_POR_PISO = 4;
+        final int MINIMO_DE_CASAS_POR_PISO = 1;
+        final double PROBABILIDAD_DE_QUE_LA_CASA_ESTE_ABIERTA = 0.7;
+        final double PROBABILIDAD_DE_RECIBIR_CARAMELOS = 0.8;
+        final int MINIMO_DE_CARAMELOS_RECIBIDOS_POR_CASA = 1;
+        final int MAXIMO_DE_CARAMELOS_RECIBIDOS_POR_CASA = 3;
 
         // bolsas llenas?
         boolean bolsaNinoUno = false;
@@ -25,29 +31,30 @@ public class ParcialParteI {
             System.out.println("=== Piso " + pisoActual + " ===");
 
             // visitar casas del piso actual donde estamos ahora en este momento
-            int casasVisitadasDelPisoActual = 1;
-            while (casasVisitadasDelPisoActual <= 4) {
-                casasVisitadas = casasVisitadas + 1;
+            int casasVisitadasDelPisoActual = MINIMO_DE_CASAS_POR_PISO;
+            while (casasVisitadasDelPisoActual <= MAXIMO_DE_CASAS_POR_PISO) {
+                casasVisitadas = casasVisitadas++;
                 System.out.println("Visitando casa " + casasVisitadasDelPisoActual + " del piso " + pisoActual);
 
                 // ver si podemos pedir
                 if (bolsaNinoUno && bolsaNinoDos && bolsaNinoTres) {
                     System.out.println("Ya no pedimos pero seguimos bajando...");
                 } else {
-                    // ver si hay suerte
-                    double suerte = Math.random() * 100 + 1;
-                    if ((int) suerte <= 70) {
+                    // ver si hay probabilidadQueLaCasaEsteAbierta
+                    double probabilidadQueLaCasaEsteAbierta = Math.random() * 100 + 1;
+                    if ((int) probabilidadQueLaCasaEsteAbierta <= PROBABILIDAD_DE_QUE_LA_CASA_ESTE_ABIERTA) {
                         System.out.println("Casa abierta!");
 
                         // ver si nos dan
-                        double s2 = Math.random() * 100 + 1;
-                        if ((int) s2 <= 80) {
-                            int n = (int) (Math.random() * 3 + 1);
+                        double probabilidadQueRecibanCaramelos = Math.random() * 100 + 1;
+                        if ((int) probabilidadQueRecibanCaramelos <= PROBABILIDAD_DE_RECIBIR_CARAMELOS) {
+                            int caramelosRecibidos = (int) (Math.random() * MAXIMO_DE_CARAMELOS_RECIBIDOS_POR_CASA
+                                    + MINIMO_DE_CARAMELOS_RECIBIDOS_POR_CASA);
 
                             // nino 1
                             if (bolsaNinoUno == false) {
-                                caramelosNinoUno = caramelosNinoUno + n;
-                                System.out.println("Niño 1 recibe " + n + " caramelos");
+                                caramelosNinoUno = caramelosNinoUno + caramelosRecibidos;
+                                System.out.println("Niño 1 recibe " + caramelosRecibidos + " caramelos");
 
                                 if (caramelosNinoUno >= maximoDeCaramelosPorBolsa) {
                                     bolsaNinoUno = true;
@@ -58,8 +65,8 @@ public class ParcialParteI {
 
                             // nino 2
                             if (bolsaNinoDos == false) {
-                                caramelosNinoDos = caramelosNinoDos + n;
-                                System.out.println("Niño 2 recibe " + n + " caramelos");
+                                caramelosNinoDos = caramelosNinoDos + caramelosRecibidos;
+                                System.out.println("Niño 2 recibe " + caramelosRecibidos + " caramelos");
 
                                 if (caramelosNinoDos >= maximoDeCaramelosPorBolsa) {
                                     bolsaNinoDos = true;
@@ -70,8 +77,8 @@ public class ParcialParteI {
 
                             // nino 3
                             if (bolsaNinoTres == false) {
-                                caramelosNinoTres = caramelosNinoTres + n;
-                                System.out.println("Niño 3 recibe " + n + " caramelos");
+                                caramelosNinoTres = caramelosNinoTres + caramelosRecibidos;
+                                System.out.println("Niño 3 recibe " + caramelosRecibidos + " caramelos");
 
                                 if (caramelosNinoTres >= maximoDeCaramelosPorBolsa) {
                                     bolsaNinoTres = true;
@@ -85,11 +92,11 @@ public class ParcialParteI {
                     }
                 }
 
-                casasVisitadasDelPisoActual = casasVisitadasDelPisoActual + 1; // siguiente casa del piso
+                casasVisitadasDelPisoActual = casasVisitadasDelPisoActual++; // siguiente casa del piso
             }
 
             // bajar al siguiente piso
-            pisoActual = pisoActual - 1;
+            pisoActual = pisoActual--;
 
             // ver si hemos llegado abajo del todo
             if (pisoActual < quedanPisos) {
