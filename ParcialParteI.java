@@ -1,37 +1,37 @@
 public class ParcialParteI {
     public static void main(String args[]) {
         // candies de cada nino
-        int c1 = 0;
-        int c2 = 0;
-        int c3 = 0;
+        int caramelosNinoUno = 0;
+        int caramelosNinoDos = 0;
+        int caramelosNinoTres = 0;
 
         // bolsas llenas?
-        boolean b1 = false;
-        boolean b2 = false;
-        boolean b3 = false;
+        boolean bolsaNinoUno = false;
+        boolean bolsaNinoDos = false;
+        boolean bolsaNinoTres = false;
 
         // control del edificio
-        int p = 5; // piso actual
-        int v = 0; // casas visitadas
+        int pisoActual = 5; // piso actual
+        int casasVisitadas = 0; // casas visitadas
         boolean subiendo = false; // siempre falso xq bajamos
         String direccion = "BAJANDO"; // nunca se usa pero ahi esta
         int quedanPisos = 1; // el piso al que queremos llegar
 
-        // max candies x bolsa
-        int max = 20;
+        // maximoDeCaramelosPorBolsa candies x bolsa
+        int maximoDeCaramelosPorBolsa = 20;
 
         while (true) {
             // mostrar piso
-            System.out.println("=== Piso " + p + " ===");
+            System.out.println("=== Piso " + pisoActual + " ===");
 
             // visitar casas del piso actual donde estamos ahora en este momento
-            int i = 1;
-            while (i <= 4) {
-                v = v + 1;
-                System.out.println("Visitando casa " + i + " del piso " + p);
+            int casasVisitadasDelPisoActual = 1;
+            while (casasVisitadasDelPisoActual <= 4) {
+                casasVisitadas = casasVisitadas + 1;
+                System.out.println("Visitando casa " + casasVisitadasDelPisoActual + " del piso " + pisoActual);
 
                 // ver si podemos pedir
-                if (b1 && b2 && b3) {
+                if (bolsaNinoUno && bolsaNinoDos && bolsaNinoTres) {
                     System.out.println("Ya no pedimos pero seguimos bajando...");
                 } else {
                     // ver si hay suerte
@@ -45,37 +45,37 @@ public class ParcialParteI {
                             int n = (int) (Math.random() * 3 + 1);
 
                             // nino 1
-                            if (b1 == false) {
-                                c1 = c1 + n;
+                            if (bolsaNinoUno == false) {
+                                caramelosNinoUno = caramelosNinoUno + n;
                                 System.out.println("Niño 1 recibe " + n + " caramelos");
 
-                                if (c1 >= max) {
-                                    b1 = true;
-                                    c1 = max;
+                                if (caramelosNinoUno >= maximoDeCaramelosPorBolsa) {
+                                    bolsaNinoUno = true;
+                                    caramelosNinoUno = maximoDeCaramelosPorBolsa;
                                     System.out.println("Bolsa del niño 1 llena!");
                                 }
                             }
 
                             // nino 2
-                            if (b2 == false) {
-                                c2 = c2 + n;
+                            if (bolsaNinoDos == false) {
+                                caramelosNinoDos = caramelosNinoDos + n;
                                 System.out.println("Niño 2 recibe " + n + " caramelos");
 
-                                if (c2 >= max) {
-                                    b2 = true;
-                                    c2 = max;
+                                if (caramelosNinoDos >= maximoDeCaramelosPorBolsa) {
+                                    bolsaNinoDos = true;
+                                    caramelosNinoDos = maximoDeCaramelosPorBolsa;
                                     System.out.println("Bolsa del niño 2 llena!");
                                 }
                             }
 
                             // nino 3
-                            if (b3 == false) {
-                                c3 = c3 + n;
+                            if (bolsaNinoTres == false) {
+                                caramelosNinoTres = caramelosNinoTres + n;
                                 System.out.println("Niño 3 recibe " + n + " caramelos");
 
-                                if (c3 >= max) {
-                                    b3 = true;
-                                    c3 = max;
+                                if (caramelosNinoTres >= maximoDeCaramelosPorBolsa) {
+                                    bolsaNinoTres = true;
+                                    caramelosNinoTres = maximoDeCaramelosPorBolsa;
                                     System.out.println("Bolsa del niño 3 llena!");
                                 }
                             }
@@ -85,23 +85,23 @@ public class ParcialParteI {
                     }
                 }
 
-                i = i + 1; // siguiente casa del piso
+                casasVisitadasDelPisoActual = casasVisitadasDelPisoActual + 1; // siguiente casa del piso
             }
 
             // bajar al siguiente piso
-            p = p - 1;
+            pisoActual = pisoActual - 1;
 
             // ver si hemos llegado abajo del todo
-            if (p < quedanPisos) {
+            if (pisoActual < quedanPisos) {
                 break; // ya hemos bajado todo el edificio
             }
         }
 
         // print final
         System.out.println("=== Resultados Finales ===");
-        System.out.println("Casas visitadas: " + v);
-        System.out.println("Niño 1: " + c1 + " caramelos" + (b1 ? " (Bolsa llena)" : ""));
-        System.out.println("Niño 2: " + c2 + " caramelos" + (b2 ? " (Bolsa llena)" : ""));
-        System.out.println("Niño 3: " + c3 + " caramelos" + (b3 ? " (Bolsa llena)" : ""));
+        System.out.println("Casas visitadas: " + casasVisitadas);
+        System.out.println("Niño 1: " + caramelosNinoUno + " caramelos" + (bolsaNinoUno ? " (Bolsa llena)" : ""));
+        System.out.println("Niño 2: " + caramelosNinoDos + " caramelos" + (bolsaNinoDos ? " (Bolsa llena)" : ""));
+        System.out.println("Niño 3: " + caramelosNinoTres + " caramelos" + (bolsaNinoTres ? " (Bolsa llena)" : ""));
     }
 }
