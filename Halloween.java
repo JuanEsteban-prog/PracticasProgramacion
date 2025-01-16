@@ -1,4 +1,6 @@
+
 public class Halloween {
+
     public static void main(String[] args) {
         int kidBagOne = 0;
         int kidBagTwo = 0;
@@ -34,8 +36,7 @@ public class Halloween {
                     if (calculateGivesCandy >= GIVES_CANDY_CHANCE) {
                         System.out.println("No candy for you!");
                     } else {
-                        int calculateCandy = (int) (Math.random() * (MAX_CANDY_PER_HOUSE - MIN_CANDY_PER_HOUSE + 1)
-                                + MIN_CANDY_PER_HOUSE);
+                        int calculateCandy = (int) (Math.random() * (MAX_CANDY_PER_HOUSE - MIN_CANDY_PER_HOUSE + 1) + MIN_CANDY_PER_HOUSE);
                         System.out.println(calculateCandy);
                         kidBagOne = kidBagOne + calculateCandy;
                         kidBagTwo = kidBagTwo + calculateCandy;
@@ -47,5 +48,6 @@ public class Halloween {
             actualFloor = actualFloor + 1;
             actualHouse = 1;
         }
+        System.out.println("Candies per child xddxdd" + kidBagOne + kidBagTwo + kidBagThree);
     }
 }

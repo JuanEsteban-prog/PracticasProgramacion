@@ -35,7 +35,7 @@ public class ElViajeDeMarco {
 
             velocidadMarco = (double) (Math.random() * (VELOCIDAD_MAXIMA - VELOCIDAD_MINIMA) + VELOCIDAD_MINIMA);
             tiempoDeTrayectoMarco = (double) (Math.random() * (TIEMPO_DE_TRAYECTO_MAXIMO_MARCO - TIEMPO_DE_TRAYECTO_MINIMO_MARCO) + TIEMPO_DE_TRAYECTO_MINIMO_MARCO);
-            avanceMarco = velocidadMarco * tiempoDeTrayectoMarco;
+            avanceMarco = (velocidadMarco * probabilidadLLuvia);
 
         }
     }
