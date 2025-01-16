@@ -13,7 +13,6 @@ public class Halloween {
         boolean fullBagThree = false;
         final int FLOORS_PER_BUILDING = 5;
         final int APARTMENTS_PER_FLOOR = 4;
-        int candy = 0;
 
         final double OPEN_HOUSE_CHANCE = 0.7;
         final double GIVES_CANDY_CHANCE = 0.8;
@@ -38,63 +37,57 @@ public class Halloween {
                     if (calculateGivesCandy >= GIVES_CANDY_CHANCE) {
                         System.out.println("No candy for you!");
                     } else {
-                    if (fullBagOne = true) {
-                        System.out.println("Bag is full!");
-                    } else {
-                        GiveCandies(MAX_CANDY_PER_HOUSE, MIN_CANDY_PER_HOUSE, candy);
-                        kidBagOne = kidBagOne + candy;
+                        if (fullBagOne) {
+                            System.out.println("Kid One bag is full");
+                        } else {
+                            
+                            kidBagOne = kidBagOne + candyCalculation(MAX_CANDY_PER_HOUSE,MIN_CANDY_PER_HOUSE);
+                        }
+                        if (fullBagTwo) {
+                            System.out.println("Kid Two bag is full");
+                        } else {
+                            
+                            kidBagTwo = kidBagTwo + candyCalculation(MAX_CANDY_PER_HOUSE,MIN_CANDY_PER_HOUSE);
+                        }
+                        if (fullBagThree) {
+                            System.out.println("Kid Three bag is full");
+                        } else {
+                            
+                            kidBagThree = kidBagThree + candyCalculation(MAX_CANDY_PER_HOUSE,MIN_CANDY_PER_HOUSE);
+                        }
                     }
-                    if (fullBagTwo = true) {
-                        System.out.println("Bag is full!");
-                    } else {
-
-                        GiveCandies(MAX_CANDY_PER_HOUSE, MIN_CANDY_PER_HOUSE,candy);
-                        kidBagTwo = kidBagTwo + candy;
+                    if (kidBagOne >= MAX_CANDIES) {
+                        fullBagOne = true;
+                        kidBagOne = MAX_CANDIES;
+                        System.out.println("The bag of the first Child is full!");
                     }
-                    if (fullBagThree = true) {
-                        System.out.println("Bag is full!");
-                    } else {
-
-                        GiveCandies(MAX_CANDY_PER_HOUSE, MIN_CANDY_PER_HOUSE,candy);
-                        kidBagThree = kidBagThree + candy;
+                    if (kidBagTwo >= MAX_CANDIES) {
+                        fullBagTwo = true;
+                        kidBagTwo = MAX_CANDIES;
+                        System.out.println("The bag of the second Child is full!");
+                    }
+                    if (kidBagThree >= MAX_CANDIES) {
+                        fullBagThree = true;
+                        kidBagThree = MAX_CANDIES;
+                        System.out.println("The bag of the third Child is full!");
                     }
                 }
-                if (kidBagOne >= MAX_CANDIES) {
-                    fullBagOne = true;
-                    kidBagOne = MAX_CANDIES;
-                    System.out.println("The bag of the first Child is full!");
-                }
-                if (kidBagTwo >= MAX_CANDIES) {
-                    fullBagTwo = true;
-                    kidBagTwo = MAX_CANDIES;
-                    System.out.println("The bag of the second Child is full!");
-                }
-                if (kidBagThree >= MAX_CANDIES) {
-                    fullBagThree = true;
-                    kidBagThree = MAX_CANDIES;
-                    System.out.println("The bag of the third Child is full!");
-                }
+                actualHouse = actualHouse + 1;
+                scanner.nextLine();
             }
-            actualHouse = actualHouse + 1;
-            scanner.nextLine();
-        
-        actualFloor = actualFloor + 1;
-        actualHouse = 1;
-
+            actualFloor = actualFloor + 1;
+            actualHouse = 1;
+        }
         System.out.println("The amount of candies that each child got is");
         System.out.println("The amount of candies that child one got is: " + kidBagOne);
         System.out.println("The amount of candies that child two got is: " + kidBagTwo);
         System.out.println("The amount of candies that child three got is: " + kidBagThree);
         scanner.close();
-            }
-        }
     }
 
-    static int GiveCandies(int MAX_CANDY_PER_HOUSE, int MIN_CANDY_PER_HOUSE, int candy){
-            int calcCandy = (int) (Math.random() * (MAX_CANDY_PER_HOUSE - MIN_CANDY_PER_HOUSE + 1) + MIN_CANDY_PER_HOUSE);
-            System.out.println(calcCandy);
-            candy = calcCandy;
-            return(candy);
-        }
+    static int candyCalculation(int max, int min) {
+        int calculateCandy = (int) (Math.random() * (max-min+ 1) + min);
+        System.out.println(calculateCandy);
+        return (calculateCandy);
+    }
 }
-

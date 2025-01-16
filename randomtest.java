@@ -1,12 +1,22 @@
-class randomtest {
+class randomtest{
     public static void main(String[] args) {
-        int i = 50;
-        final int MAX_CANDY_PER_HOUSE = 3;
-        final int MIN_CANDY_PER_HOUSE = 1;
-        while (i > 0) {
-            int a = 
-            System.out.println((int) Math.random() * 3 + 1;);
-            i = i - 1;
-        }
+        boolean fullBags = false;
+        boolean fullBagOne = false;
+        boolean fullBagTwo = false;
+        boolean fullBagThree = false;
+        int fundaNino = 0;
+        // System.out.println(fundaNino);
+        canCandies(fundaNino);
+        fundaNino = fundaNino + canCandies(fundaNino);
+        System.out.println(fundaNino);
     }
-}
+
+    static int canCandies(int fundaNino){
+        
+            int calculateCandy = (int) (Math.random() * (3 - 1+ 1) + 1);
+        //    System.out.println(calculateCandy);
+            return calculateCandy;
+        }
+
+    }
+//}
