@@ -18,7 +18,7 @@
 
 - Es el principio que permite organizar las clases en una estructura de herencia, donde una clase hija hereda atributos y métodos de una clase padre.
 - Esto permite la reutilización del código, la extensión de funcionalidades y el uso del polimorfismo.
-- Polimorfismo: roviene del griego "poli" (muchos) y "morfos" (formas), y en programación orientada a objetos significa que un mismo método puede tener diferentes comportamientos dependiendo del objeto que lo invoque. El polimorfismo permite que diferentes clases respondan al mismo mensaje (método) de forma distinta, adaptando su comportamiento según el tipo del objeto.
+- Polimorfismo: roviene del griego "poli" (muchos) y "morfos" (formas), y en programación orientada a objetoszsignifica que un mismo método puede tener diferentes comportamientos dependiendo del objeto que lo invoque. El polimorfismo permite que diferentes clases respondan al mismo mensaje (método) de forma distinta, adaptando su comportamiento según el tipo del objeto.
 
 > **Ejemplo:**
 > La clase `Animal` puede tener un metodo `hacerSonido()`, y las clases `Perro` y `Gato ` pueden heredar de `Animal` y redifinir ese método según su comportamiento específico.
@@ -30,3 +30,38 @@
 
 > **Ejemplo:**
 > En una aplicación de compras en línea se pueden tener módulos separados como `Usuario`, `Prodcuto`, `Carrito` y `Pago`, cada uno con su propio conjunto de clases y responsabilidades.
+
+### Diagramas PlantUML
+
+- Es una herramienta que permite crear diagramas UML(como diagramas de clases, casos de uso, secuencia, etc) usando texto. Son útiles para:
+  - Modelar estructuras de clases orientadas a objetos.
+  - Documentar los sistemas antes y durante el desarrollo.
+  - Generar diagramas rápidamente sin arrastar y soltar elementos gráficos.
+  - Mantener los diagramas dentro del proyecto, en archivos `.puml`
+
+Para usarlo dentro de Visual Studio
+
+```.puml
+@startuml
+
+abstract class Persona {
+  +nombre: String
+  +edad: int
+  +hablar(): void
+}
+
+class Alumno {
+  +matricula: String
+}
+
+class Profesor {
+  +numeroEmpleado: int
+}
+
+Persona <|-- Alumno
+Persona <|-- Profesor
+Alumno --> Profesor : asiste a
+
+@enduml
+
+```

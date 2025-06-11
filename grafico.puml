@@ -1,0 +1,18 @@
+abstract class Persona {
+  +nombre: String
+  +edad: int
+  +hablar(): void
+}
+
+class Alumno {
+  +matricula: String
+}
+
+class Profesor {
+  +numeroEmpleado: int
+}
+
+Persona <|-- Alumno
+Persona <|-- Profesor
+Alumno --> Profesor : asiste a
+
