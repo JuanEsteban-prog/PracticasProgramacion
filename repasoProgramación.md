@@ -22,3 +22,11 @@
 
 > **Ejemplo:**
 > La clase `Animal` puede tener un metodo `hacerSonido()`, y las clases `Perro` y `Gato ` pueden heredar de `Animal` y redifinir ese método según su comportamiento específico.
+
+### Modularidad
+
+- Es la capacidad de dividir un programa en partes o módulos independientes y reutilizables, cada uno con una funcionalidad específica.
+- Permite un desarrollo más organizado, facilita el mantenimiento y mejora la colaboración entre distintos desarrolladores.
+
+> **Ejemplo:**
+> En una aplicación de compras en línea se pueden tener módulos separados como `Usuario`, `Prodcuto`, `Carrito` y `Pago`, cada uno con su propio conjunto de clases y responsabilidades.
